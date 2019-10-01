@@ -1,0 +1,35 @@
+{ 
+    "players": ["dan_bot", "gaurav_bot", "mason_bot", "jon_bot"],
+    [
+        {
+            "actor": "dan_bot",
+            "card": "1",
+            "guess": "3",
+            "target": "gaurav_bot",
+            "eliminated": true
+        },
+        {
+            "actor": "mason_bot",
+            "card": "5",
+            "guess": null,
+            "target": "mason_bot",
+            "eliminated": false
+        },
+        {
+            "actor": "jon_bot",
+            "card": "4",
+            "guess": null,
+            "target": null,
+            "eliminated": false
+        },
+        {
+            "actor", "dan_bot",
+            "card": "1",
+            "guess": "5",
+            "target" "mason_bot",
+            "eliminated": true
+        }
+    ],
+    "cards": ["3", "8"]
+}
+

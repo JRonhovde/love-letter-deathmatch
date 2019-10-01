@@ -1,0 +1,49 @@
+{ 
+    "actions": {
+        [
+            {
+                "players": ["gaurav_bot", "dan_bot", "madison_bot", "jon_bot"],
+                "players_remaining": ["gaurav_bot", "madison_bot", "dan_bot"],
+                "tokens": {
+                    "gaurav_bot": "6",
+                    "dan_bot": "2",
+                    "madison_bot": "3",
+                    "jon_bot": "3"
+                },
+                "cards_remaining": "3",
+                "cards_held": ["5", "1"]
+            },
+            {
+                "actor": "dan_bot",
+                "card": "1",
+                "guess": "3",
+                "target": "gaurav_bot"
+                "result": {
+                    "target_eliminated": true,
+                    "token" : true
+                }
+            },
+            {
+                "players": ["gaurav_bot", "dan_bot", "madison_bot", "jon_bot"],
+                "players_remaining": ["madison_bot", "dan_bot"],
+                "tokens": {
+                    "gaurav_bot": "6",
+                    "dan_bot": "3",
+                    "madison_bot": "3",
+                    "jon_bot": "3"
+                },
+                "cards_remaining": "3",
+                "cards_held": ["5"]
+            },
+        ]
+    },
+    "cards": [
+        {
+            "gaurav_bot": ["2", "3", "4"],
+            "dan_bot": ["1", "1" ],
+            "madison_bot": ["1", "6", "7", "4"]
+            "jon_bot": ["4"],
+        }
+    ]
+}
+
