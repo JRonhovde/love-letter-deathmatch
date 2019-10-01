@@ -1,1 +1,1 @@
-# love-letter-robot-deathmatch
+# love-letter-deathmatch
