@@ -1,0 +1,12 @@
+Player must always have 1 card in hand, unless they are out or it is their turn.
+Player may not target a player with a "4" card in front of them.
+On their turn, players must play one card from there hand, with a valid target and guess, if applicable.
+Standard Batman Love Letter rules apply:
+1. Batman: Choose a target player and name a card, other than Batman. If correct, the target is eliminated and the player gains a token
+2. Catwoman: Choose a target player and look at the card in their hand.
+3. Bane: Compare cards with target player, the player with the lower card is eliminated.
+4. Robin: You are immune to all effects from other cards until your next turn.
+5. Poison Ivy: Choose a target player(including yourself), that player discards their card and draws 1 card.
+6. Two-Face: Trade hands with target player.
+7. Harley Quinn: If you are holding Poison Ivy or Two-Face, you must play this card.
+8. Joker: If you play or discard this card for any reason, you are eliminated.
