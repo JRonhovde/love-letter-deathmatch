@@ -1,44 +1,52 @@
 { 
     "players": ["dan_bot", "gaurav_bot", "mason_bot", "jon_bot"],
     "cards": ["3", "8"],
-    "rounds": 
-    [
+    "turns": [ 
         {
-        "number": 1,
-        "winner": null,
-        "turns":
-            [ 
-                {
-                    "actor": "dan_bot",
-                    "card": "1",
-                    "guess": "3",
-                    "target": "gaurav_bot",
-                    "eliminated": true
-                },
-                {
-                    "actor": "mason_bot",
-                    "card": "5",
-                    "guess": null,
-                    "target": "mason_bot",
-                    "eliminated": false
-                },
-                {
-                    "actor": "jon_bot",
-                    "card": "4",
-                    "guess": null,
-                    "target": null,
-                    "eliminated": false
-                },
-                {
-                    "actor": "dan_bot",
-                    "card": "1",
-                    "guess": "5",
-                    "target": "mason_bot",
-                    "eliminated": true
-                }
-            ]
+            "actor": "dan_bot",
+            "card": "1",
+            "guess": "3",
+            "target": "gaurav_bot",
+            "eliminated": true
+        },
+        {
+            "actor": "mason_bot",
+            "card": "5",
+            "guess": null,
+            "target": "mason_bot",
+            "eliminated": false
+        },
+        {
+            "actor": "jon_bot",
+            "card": "4",
+            "guess": null,
+            "target": null,
+            "eliminated": false
+        },
+        {
+            "actor": "dan_bot",
+            "card": "1",
+            "guess": "5",
+            "target": "mason_bot",
+            "eliminated": true
+        }
+    ],
+    "scores": [
+        { 
+            "name": "dan_bot",
+            "tokens": 4
+        },
+        { 
+            "name": "gaurav_bot",
+            "tokens": 5
+        },
+        { 
+            "name": "mason_bot",
+            "tokens": 1
+        },
+        { 
+            "name": "jon_bot",
+            "tokens": 2
         }
     ]
-    
 }
-

@@ -1,0 +1,2 @@
+#!/bin/bash
+echo '{"card": 1, "target": "gaurav_bot", "guess": 3 }'
