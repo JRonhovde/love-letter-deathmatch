@@ -3,16 +3,28 @@ import json
 import random
 import loveletter
 import pprint
+import sys
 
 secure_random = random.SystemRandom()
 
 jsonFile='action.json'
-players = [
-    loveletter.Player('dan_bot',    '/home/jonron/dev/love-letter-deathmatch/', 'dan_bot_script'),
-    loveletter.Player('jon_bot',    '/home/jonron/dev/love-letter-deathmatch/', 'jon_bot_script'),
-    loveletter.Player('mason_bot',  '/home/jonron/dev/love-letter-deathmatch/', 'mason_bot_script'),
-    loveletter.Player('gaurav_bot', '/home/jonron/dev/love-letter-deathmatch/', 'gaurav_bot_script')
-]
+players = {
+        'dan_bot': loveletter.Player('dan_bot',    '/home/jonron/dev/love-letter-deathmatch/', 'dan_bot_script'),
+        'jon_bot': loveletter.Player('jon_bot',    '/home/jonron/dev/love-letter-deathmatch/', 'jon_bot_script'),
+        'mason_bot': loveletter.Player('mason_bot',  '/home/jonron/dev/love-letter-deathmatch/', 'mason_bot_script'),
+        'gaurav_bot':loveletter.Player('gaurav_bot', '/home/jonron/dev/love-letter-deathmatch/', 'gaurav_bot_script')
+}
+
+validPlayers = {
+        0: 'dan_bot',
+        1: 'jon_bot',
+        2: 'mason_bot',
+        3: 'gaurav_bot'
+}
+
+print(*validPlayers, sep = "\n\n")
+print("")
+# sys.exit(0)
 
 # secure_random.shuffle(players)
 print(*players, sep = "\n\n")
@@ -32,25 +44,30 @@ with open(jsonFile) as action_file:
 
 #deal the cards
 #burn first card
-deck.pop()
-for player in players:
-    player.cards = [deck.pop()]
+burntCard = deck.pop()
+for player_name in players:
+    # player = players[player_name]
     # print(player)
+    players[player_name].cards = [deck.pop()]
     # print()
-
-# while players.length > 1 and cards > 0:
-for i in range(0,20):
-    player_index = i % len(players)
-    action = json.loads(players[player_index].play())
+i = 0
+while len(players) > 1 and len(deck) > 0 and i < 20:
+    print (i%(len(validPlayers)))
+    # player = players[validPlayers[i%len(validPlayers)]]
+    player = next(players)
+    print("Turn: " + player.name)
+    player.cards.append(deck.pop())
+    print("Cards: " +str(player.cards))
+    # action = json.loads(player.takeTurn())
+    player.doAction(action,players,validPlayers)
+    # print(*validPlayers, sep = "\n\n")
     # action_dict = json.loads(action)
-    print(action['target'])
     # print(player_index)
+    i += 1
 
     
 
-print(deck)
-
-def playCard(card, target,
+# print(deck)
 
 # print(*action, sep = "\n")
 # pprint.pprint(action)
