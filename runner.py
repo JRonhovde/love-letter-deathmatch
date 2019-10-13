@@ -3,6 +3,7 @@ import json
 import random
 import loveletter
 import pprint
+import sys
 
 secure_random = random.SystemRandom()
 
@@ -13,6 +14,16 @@ players = [
     loveletter.Player('mason_bot',  '/home/jonron/dev/love-letter-deathmatch/', 'mason_bot_script'),
     loveletter.Player('gaurav_bot', '/home/jonron/dev/love-letter-deathmatch/', 'gaurav_bot_script')
 ]
+
+validPlayers = dict()
+
+for thisPlayer in players:
+    print(thisPlayer.name)
+    print(thisPlayer)
+    validPlayers[thisPlayer.name] = thisPlayer
+
+print(*validPlayers, sep = "\n\n")
+# sys.exit(0)
 
 # secure_random.shuffle(players)
 print(*players, sep = "\n\n")
@@ -37,20 +48,23 @@ for player in players:
     player.cards = [deck.pop()]
     # print(player)
     # print()
-
-# while players.length > 1 and cards > 0:
-for i in range(0,20):
-    player_index = i % len(players)
-    action = json.loads(players[player_index].play())
+i=0
+while len(players) > 1 and cards > 0:
+    for 
+    currentPlayer = players[i % len(players)]
+    print("Turn: " + currentPlayer.name)
+    currentPlayer.cards.append(deck.pop())
+    print("Cards: " +str(currentPlayer.cards))
+    action = json.loads(currentPlayer.takeTurn())
+    currentPlayer.doAction(action,players,validPlayers)
+    print(*validPlayers, sep = "\n\n")
     # action_dict = json.loads(action)
-    print(action['target'])
     # print(player_index)
+    ++i
 
     
 
 print(deck)
-
-def playCard(card, target,
 
 # print(*action, sep = "\n")
 # pprint.pprint(action)
