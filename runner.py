@@ -26,6 +26,16 @@ print(*validPlayers, sep = "\n\n")
 print("")
 # sys.exit(0)
 
+validPlayers = dict()
+
+for thisPlayer in players:
+    print(thisPlayer.name)
+    print(thisPlayer)
+    validPlayers[thisPlayer.name] = thisPlayer
+
+print(*validPlayers, sep = "\n\n")
+# sys.exit(0)
+
 # secure_random.shuffle(players)
 print(*players, sep = "\n\n")
 print("")
