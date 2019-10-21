@@ -21,9 +21,10 @@ class Player(object):
         # print(stdout)
         # print(stderr)
 
-    def doAction(self, action, players, validPlayers):
+    def doAction(self, action, players):
         print(action)
         card = action['card']
+        print("Remove", card)
         self.cards.remove(card) 
         target = action['target']
         targetPlayer = players[action['target']]
@@ -32,15 +33,21 @@ class Player(object):
         if card == 1: 
             guess = action['guess']
             if targetPlayer.cards[0] == action['guess']:
-                del validPlayers[action['target']]
+                print(action['target'], " dies")
+                del players[action['target']]
+                validPlayers.remove(action['target'])
                 ++self.tokens
         elif card == 3: 
             if self.cards[0] > targetPlayer.cards[0]:
-                del validPlayers[action['target']]
+                del players[action['target']]
+                validPlayers.remove(action['target'])
             elif self.cards[0] < targetPlayer.cards[0]:
-                del validPlayers[self.name]
+                del players[self.name]
+                validPlayers.remove(self.name)
             elif self.cards[0] == targetPlayer.cards[0]:
                 print('do nothing')
+        
+        print(players)
 
         # return action['card']
 
