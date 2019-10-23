@@ -10,9 +10,9 @@ secure_random = random.SystemRandom()
 
 jsonFile='action.json'
 players = OrderedDict()
-players['dan_bot']    = loveletter.Player('dan_bot',    '/home/jonron/dev/love-letter-deathmatch/', 'dan_bot_script'),
-players['jon_bot']    = loveletter.Player('jon_bot',    '/home/jonron/dev/love-letter-deathmatch/', 'jon_bot_script'),
-players['mason_bot']  = loveletter.Player('mason_bot',  '/home/jonron/dev/love-letter-deathmatch/', 'mason_bot_script'),
+players['dan_bot']    = loveletter.Player('dan_bot',    '/home/jonron/dev/love-letter-deathmatch/', 'dan_bot_script')
+players['jon_bot']    = loveletter.Player('jon_bot',    '/home/jonron/dev/love-letter-deathmatch/', 'jon_bot_script')
+players['mason_bot']  = loveletter.Player('mason_bot',  '/home/jonron/dev/love-letter-deathmatch/', 'mason_bot_script')
 players['gaurav_bot'] = loveletter.Player('gaurav_bot', '/home/jonron/dev/love-letter-deathmatch/', 'gaurav_bot_script')
 
 # validPlayers = {
@@ -61,23 +61,28 @@ deck=[ 1, 1, 1, 1, 1, 2, 3, 1, 8, 1, 3, 1, 3, 1, 2]
 burntCard = deck.pop()
 print("Burned Card:",burntCard)
 for player_name, player in players.items():
+    print(player)
     # player = players[player_name]
     player.cards = [deck.pop()]
     print(player_name, player.cards)
     # print()
+iterValidPlayers = iter(validPlayers)
 i = 0
 print("Deck after dealing:", deck)
 while len(players) > 1 and len(deck) > 0 and i < 20:
-    print (i%(len(validPlayers)))
-    player = players[validPlayers[i%len(validPlayers)]]
-    # player = next(players)
+    # print("i: ", i)
+    # print("len: ", len(validPlayers))
+    # print (i%(len(validPlayers)))
+    # player = players[validPlayers[i%len(validPlayers)]]
+    # player = players[validPlayers[i%len(validPlayers)]]
+    player = players[next(iterValidPlayers)]
     print("Turn: " + player.name)
     print(deck)
     player.cards.append(deck.pop())
     print("Cards: " +str(player.cards))
     action = json.loads(player.takeTurn())
-    print(action)
-    player.doAction(action,players)
+    # print(action)
+    player.doAction(action,players,validPlayers)
     # print(*validPlayers, sep = "\n\n")
     # action_dict = json.loads(action)
     # print(player_index)

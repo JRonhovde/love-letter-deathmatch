@@ -21,7 +21,7 @@ class Player(object):
         # print(stdout)
         # print(stderr)
 
-    def doAction(self, action, players):
+    def doAction(self, action, players,validPlayers):
         print(action)
         card = action['card']
         print("Remove", card)
@@ -41,11 +41,13 @@ class Player(object):
             if self.cards[0] > targetPlayer.cards[0]:
                 del players[action['target']]
                 validPlayers.remove(action['target'])
+                print(action['target'], " dies")
             elif self.cards[0] < targetPlayer.cards[0]:
                 del players[self.name]
                 validPlayers.remove(self.name)
+                print(self.name, " dies")
             elif self.cards[0] == targetPlayer.cards[0]:
-                print('do nothing')
+                print('nobody dies')
         
         print(players)
 
